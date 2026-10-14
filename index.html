@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"content="width=device-width,initial-scale=1.0">
+        <title>FindIt-Lost and Found</title>
+        <style>
+            body {
+                font-family: Arial,sans-serif;
+                margin: 0;
+                background: #f2f5fa;
+                color: #222;
+            }
+            header{
+                background: #173b67;
+                color: white;
+                text-align: center;
+                padding: 25px;
+            }
+            nav{
+                background: #102b4c;
+                padding: 14px;
+                text-align: center;
+            }
+            nav a{
+                color: white;
+                text-decoration: none;
+                margin: 12px;
+            }
+            main{
+                max-width: 800px;
+                margin: 30px auto;
+                padding: 20px;
+            }
+            .card{
+                background: white;
+                padding: 22px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+
+            }
+            input,select,textarea,button{
+                width: 100%;
+                padding: 12px;
+                margin: 8px0;
+                box-sizing: border-box;
+            }
+            button{
+                background: #176b50;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+
+            }
+            .item{
+                border-bottom: 1px solid #ddd;
+                padding: 12px0;
+            }
+            footer{
+                text-align: center;
+                padding: 20px;
+                background: #173b67;
+                color: white;
+            }
+        </style>
+
+    </head>
+    <body>
+        <header>
+            <h1>FindIt</h1>
+            <p>Lost something? Let us help you find it.</p>
+
+        </header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#report">Report an Item</a>
+            <a href="#items">Lost and Found items</a>
+        </nav>
+        <main>
+            <section class="card"id="home">
+                <h2>Welcome to FindIt</h2>
+                <p>A community platform that connects people who have lost items with people who have found them.</p>
+
+            </section>
+            <section class="card"id="report">
+                <h2>Report a Lost or Found Item</h2>
+
+                <form id="itemForm">
+                    <label>Item Name</label>
+                    <input id="itemName"type="text"
+                    placeholder="e.g Black School Bag"required>
+
+                    <label>Report type</label>
+                    <select id="item type">
+                        <option value="Lost">I lost this item</option>
+                        <option value="Found">I found this item</option>
+                    </select>
+                    <label>Location</label>
+                    <input id="itemLocation"type="text"
+                    placeholder="Where was it Lost or Found?"required>
+
+                    <label>Description</label>
+                    <textarea id="itemDescription"
+                    placeholder="Describe the item"required>
+                </textarea>
+                <button type="submit">Submit report</button>
+                </form>
+
+            </section>
+            <section class="card"id="items"
+            <h2>recent reports</h2>
+           <div id="itemList">
+            <p>No reports yet. Add the first one above!</p>
+           </div>
+           </section>
+        </main>
+        <footer>
+            <p>FindIt@2026 |Helping people reunite with their belongings.</p>
+            
+        </footer>
+        <script>
+            const form=document.getElementById("itemForm");
+            const itemList=document.getElementById("itemList");
+
+            form.addEventListener("submit,function(event)"){
+                event.preventDefault();
+
+                const name=form
+                document.getElementById("itemName").value;
+                const type=form
+                document.getElementById("itemType").value;
+                const Location=Location
+                document.getElementById("itemLocation").value;
+
+                const Description=Description
+                document.getElementById("itemDescription").value;
+
+                const item=document.createElement("div");
+                item.className="item";
+
+                const heading=document.createElement("h3");
+                heading.textContent=type+":"+name;
+
+                const place=document.createElement("p");
+                place.textContent="Location:"+location;
+
+                const details=document.createElement("p");
+                details.textContent=description;
+
+                item.append(heading,place,details);
+                if
+                (itemList.querySelector("p")?.textContent.startsWith("No reports")){
+                    itemList.replaceChildren();
+                }
+                itemList.prepend(item);
+                form.reset();
+                alert("Your report has been added!");
+
+            };
+
+        </script>
+    </body>
+</html>
